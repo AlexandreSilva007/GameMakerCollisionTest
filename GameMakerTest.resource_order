@@ -1,4 +1,7 @@
 {
   "FolderOrderSettings": [],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"obj_collision","order":1,"path":"objects/obj_collision/obj_collision.yy",},
+    {"name":"spr_saci_pulando","order":1,"path":"sprites/spr_saci_pulando/spr_saci_pulando.yy",},
+  ],
 }

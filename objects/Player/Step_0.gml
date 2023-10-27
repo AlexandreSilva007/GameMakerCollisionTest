@@ -1,122 +1,65 @@
-
 var _xdirection = keyboard_check(vk_right) - keyboard_check(vk_left);
-//var _ydirection = keyboard_check(vk_down) - keyboard_check(vk_up);
 var _pulou = keyboard_check(vk_space);
 
 
-if(_xdirection==0){
+#region Velocidade em X
+/*Não está tantando se mover, desacelerar em X*/
+if( _xdirection == 0 ){
 	var _old_sign = sign(x_speed);
-	x_speed = x_speed - acceleration*_old_sign*2;
-
+	x_speed = x_speed - acceleration*_old_sign*2; //desacelera
 	var _new_sign = sign(x_speed);
-
-	if(_old_sign != _new_sign){
+	
+	if(_old_sign != _new_sign){ //se desacelerou a ponto de inverter velocidade, para
 		x_speed = 0;
 	}
 }
 else{
-	x_speed = x_speed + _xdirection*acceleration;
+	x_speed = x_speed + _xdirection*acceleration; //acelera de acordo com a direção pressionada
 	
+	//limita a velocidade máxima
 	if(x_speed  > max_speed) {x_speed = max_speed;}
 	else if (x_speed < -max_speed){ x_speed = -max_speed;}
 }
+#endregion
 
-
-
-
-
+#region Velocidade em Y
+//velocidade em Y é o qua já havia + aceleração da gravidade
 y_speed  = y_speed +  gravidade;
+#endregion
 
 
-var _colx = move_and_collide(x_speed, 0, obj_collision,abs(x_speed));
-
-
-
+#region Colisão em X
+var _colx = move_and_collide(x_speed, 0, obj_collision/*, abs(x_speed)*/);
 if(array_length(_colx) > 0){
-	show_debug_message(object_get_name(_colx[0].object_index));
 	if(object_get_name(_colx[0].object_index) == object_get_name(obj_piso.object_index) ){
 		x_speed = 0;
 	}
 }
+#endregion
 
-var _zerar = false;
-if( array_length( move_and_collide(0,y_speed,obj_collision, abs(y_speed))   ) > 0){
+
+#region Colisão em Y e pulo
+if( array_length( move_and_collide(0,y_speed,obj_collision /*, abs(y_speed)*/)   ) > 0 ){
 	y_speed = 0;
+	jumping = false;
 	if(_pulou){
-		show_debug_message("pulo");
 		y_speed = -jump_power*gravidade; //pulo
+		jumping = true;
 	}
 }
-
-
-
-//#region Colisao Rampas
-//var _testey =  place_meeting(x, y+y_speed, obj_rampa);		
-//if(_testey){	
-//	var _y=1, _max = 10;	
-//	while(!place_meeting(x,y+_y,obj_rampa) && _max>0){
-//		_y++;
-//		_max--;
-//	}
-	
-//	show_debug_message(_y);
-//	y = y -_y*sign(y_speed);
-//	y_speed = 0;
-//}
-
-
-//var _testex =  place_meeting(x+x_speed, y, obj_rampa);		
-//if(_testex){
-//	var _x=1, _max = 10;
-//	while(!place_meeting(x+_x,y,obj_rampa) && _max>0){
-//		_x++;
-//		_max--;
-//	}
-	
-//	show_debug_message(_x);
-//	x = x + _x * sign(x_speed);
-//	x_speed=0;	
-//}
-//#endregion
-
-
-//var _teste = _testex || _testey;
-
-
-//#region Colisao Paredes ou pisos
-//var _coly = place_meeting(x, y + y_speed, obj_piso);
-
-//if(_coly && !_teste){
-//	y_speed = 0;	
-//	show_debug_message("coly");
-//}
-
-
-//var _colx = place_meeting(x + x_speed, y, obj_piso);
-//if(_colx && !_teste){
-//	x_speed = 0;
-//	show_debug_message("colx");
-//}
-
-//y = y + y_speed;
-//x = x + x_speed;
-
-//#endregion
-
-
-//if(_coly || _testey){
-//	if(_pulou){
-//		show_debug_message("pulo");
-//		y_speed = -jump_power*gravidade; //pulo
-//	}
-//}
+#endregion
 		
-		
-		
-		
-		
-		
-		
+
+#region Seleção da Animação
+
+
+if(jumping){
+	sprite_index = spr_saci_pulando;
+	if(_xdirection!=0)
+		image_xscale = sign(_xdirection);
+}
+else{
+
 if(_xdirection==0){
 	sprite_index = spr_saci_parado;
 }
@@ -128,14 +71,11 @@ else{
 	sprite_index = spr_saci_andando;
 	image_xscale = -1;
 }
+}
+#endregion
 		
-	
 
 
-
-
+//câmera
 //var cx = lerp(camera_get_view_x(view_camera[0]), x-camera_width/2, 0.5);
 camera_set_view_pos(view_camera[0], x-camera_width/2, camera_height/2 + y);
-	
-	
-

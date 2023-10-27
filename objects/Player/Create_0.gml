@@ -6,6 +6,7 @@ x_speed = 0.0;
 max_speed = 10.0;
 jump_power = 25;
 acceleration = 0.2;
+jumping = false;
 
 prev_x = x;
 prev_y = y;
