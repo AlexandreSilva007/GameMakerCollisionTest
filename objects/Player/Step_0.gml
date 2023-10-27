@@ -1,3 +1,4 @@
+
 var _xdirection = keyboard_check(vk_right) - keyboard_check(vk_left);
 //var _ydirection = keyboard_check(vk_down) - keyboard_check(vk_up);
 var _pulou = keyboard_check(vk_space);
@@ -136,5 +137,5 @@ else{
 //var cx = lerp(camera_get_view_x(view_camera[0]), x-camera_width/2, 0.5);
 camera_set_view_pos(view_camera[0], x-camera_width/2, camera_height/2 + y);
 	
-
+	
 
