@@ -54,7 +54,9 @@ if( array_length( move_and_collide(0,y_speed,obj_collision /*, abs(y_speed)*/)  
 
 
 if(jumping){
+	
 	sprite_index = spr_saci_pulando;
+	
 	if(_xdirection!=0)
 		image_xscale = sign(_xdirection);
 }

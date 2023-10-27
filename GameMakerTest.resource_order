@@ -1,7 +1,9 @@
 {
   "FolderOrderSettings": [],
   "ResourceOrderSettings": [
+    {"name":"spr_background_lua","order":2,"path":"sprites/spr_background_lua/spr_background_lua.yy",},
     {"name":"obj_collision","order":1,"path":"objects/obj_collision/obj_collision.yy",},
+    {"name":"spr_background_ceu","order":3,"path":"sprites/spr_background_ceu/spr_background_ceu.yy",},
     {"name":"spr_saci_pulando","order":1,"path":"sprites/spr_saci_pulando/spr_saci_pulando.yy",},
   ],
 }
