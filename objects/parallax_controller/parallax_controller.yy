@@ -1,18 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_piso",
-  "eventList": [],
+  "name": "parallax_controller",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",
     "path": "folders/Objects.yy",
   },
-  "parentObjectId": {
-    "name": "obj_collision",
-    "path": "objects/obj_collision/obj_collision.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -29,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_not_render",
-    "path": "sprites/spr_not_render/spr_not_render.yy",
+    "name": "spr_moitas",
+    "path": "sprites/spr_moitas/spr_moitas.yy",
   },
   "spriteMaskId": null,
   "visible": false,

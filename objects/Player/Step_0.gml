@@ -80,4 +80,4 @@ else{
 
 //câmera
 //var cx = lerp(camera_get_view_x(view_camera[0]), x-camera_width/2, 0.5);
-camera_set_view_pos(view_camera[0], x-camera_width/2, camera_height/2 + y);
+camera_set_view_pos(view_camera[0], x-camera_width/2,  -(camera_height/2 - y) );
