@@ -165,7 +165,7 @@
       ],"spriteId":{"name":"spr_moitas","path":"sprites/spr_moitas/spr_moitas.yy",},"stretch":true,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":400,"effectEnabled":true,"effectType":"_filter_clouds","gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[
         {"name":"g_CloudScale","type":0,"value":"64",},
-        {"name":"g_CloudVelocity","type":0,"value":"-10",},
+        {"name":"g_CloudVelocity","type":0,"value":"-5",},
         {"name":"g_CloudVelocity","type":0,"value":"0",},
         {"name":"g_CloudTurbulence","type":0,"value":"1",},
         {"name":"g_CloudLevel","type":0,"value":"0.5",},

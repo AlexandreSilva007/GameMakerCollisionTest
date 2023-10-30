@@ -39,6 +39,7 @@
     {"id":{"name":"spr_piso_grama","path":"sprites/spr_piso_grama/spr_piso_grama.yy",},},
     {"id":{"name":"spr_saci_andando","path":"sprites/spr_saci_andando/spr_saci_andando.yy",},},
     {"id":{"name":"obj_piso","path":"objects/obj_piso/obj_piso.yy",},},
+    {"id":{"name":"player_functions","path":"scripts/player_functions/player_functions.yy",},},
     {"id":{"name":"spr_moitas","path":"sprites/spr_moitas/spr_moitas.yy",},},
     {"id":{"name":"obj_collision","path":"objects/obj_collision/obj_collision.yy",},},
     {"id":{"name":"obj_rampa","path":"objects/obj_rampa/obj_rampa.yy",},},

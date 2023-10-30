@@ -2,6 +2,7 @@
   "FolderOrderSettings": [],
   "ResourceOrderSettings": [
     {"name":"spr_background_lua","order":2,"path":"sprites/spr_background_lua/spr_background_lua.yy",},
+    {"name":"player_functions","order":1,"path":"scripts/player_functions/player_functions.yy",},
     {"name":"spr_moitas","order":5,"path":"sprites/spr_moitas/spr_moitas.yy",},
     {"name":"obj_collision","order":1,"path":"objects/obj_collision/obj_collision.yy",},
     {"name":"spr_background_ceu","order":3,"path":"sprites/spr_background_ceu/spr_background_ceu.yy",},
