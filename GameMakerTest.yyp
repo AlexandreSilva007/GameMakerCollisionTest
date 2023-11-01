@@ -44,7 +44,6 @@
     {"id":{"name":"obj_collision","path":"objects/obj_collision/obj_collision.yy",},},
     {"id":{"name":"obj_rampa","path":"objects/obj_rampa/obj_rampa.yy",},},
     {"id":{"name":"spr_background_ceu","path":"sprites/spr_background_ceu/spr_background_ceu.yy",},},
-    {"id":{"name":"basic_functions","path":"scripts/basic_functions/basic_functions.yy",},},
     {"id":{"name":"spr_saci_pulando","path":"sprites/spr_saci_pulando/spr_saci_pulando.yy",},},
     {"id":{"name":"plataforma_grama","path":"tilesets/plataforma_grama/plataforma_grama.yy",},},
     {"id":{"name":"parallax_controller","path":"objects/parallax_controller/parallax_controller.yy",},},
