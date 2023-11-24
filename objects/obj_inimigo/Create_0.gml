@@ -14,10 +14,10 @@ hit = function(_cx,_cy){
 	_dy = y-_cy;
 
 	if (array_length(move_and_collide(_dx,0,obj_collision)) > 0){
-		x = x - _dx;
+		x = x - 2*_dx;
 	}//bounce
 	
 	if (array_length(move_and_collide(0,_dy,obj_collision)) > 0){
-		y = y - _dy;
+		y = y - 2*_dy;
 	}//bounce
 }
