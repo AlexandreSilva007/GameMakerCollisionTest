@@ -3,6 +3,7 @@ function player_move_and_collide(){
 
 	var _xdirection = keyboard_check(vk_right) - keyboard_check(vk_left);
 	var _pulou = keyboard_check(vk_space);
+	var _atacou = mouse_check_button(mb_left) &&  (saci.estado == STATE.LIVRE);
 
 	#region Velocidade em X
 /*Não está tantando se mover, desacelerar em X*/
@@ -26,7 +27,7 @@ else{
 
 	#region Velocidade em Y
 //velocidade em Y é o qua já havia + aceleração da gravidade
-saci.y_speed  = saci.y_speed + saci.gravidade;
+saci.y_speed  = saci.y_speed + GRAVIDADE;
 #endregion
 
 	#region Colisão em X
@@ -42,9 +43,11 @@ if(array_length(_colx) > 0){
 if( array_length( move_and_collide(0,saci.y_speed,obj_collision /*, abs(y_speed)*/)   ) > 0 ){
 	saci.y_speed = 0;
 	saci.jumping = false;
+	saci.jump_attack = false;
 	if(_pulou){
-		saci.y_speed = -saci.jump_power*saci.gravidade; //pulo
+		saci.y_speed = -saci.jump_power*GRAVIDADE; //pulo
 		saci.jumping = true;
+		audio_play_sound(snd_jump,0,false);
 	}
 }
 #endregion
@@ -53,24 +56,56 @@ if( array_length( move_and_collide(0,saci.y_speed,obj_collision /*, abs(y_speed)
 
 
 if(saci.jumping){
-	sprite_index = spr_saci_pulando;
 	
 	if(_xdirection!=0)
 		image_xscale = sign(_xdirection);
+		
+	 if(_atacou && saci.estado == STATE.LIVRE && !saci.jump_attack){
+		saci.estado = STATE.ATACANDO;
+		saci.jump_attack = true;
+		sprite_index = spr_saci_jump_attack;
+		audio_play_sound(snd_attack,0,false);
+		
+		if(!instance_exists(obj_hitbox_jump_attack)){
+			hitbox = instance_create_layer(x+80*image_xscale,y +50,layer,obj_hitbox_jump_attack);
+			//hitbox.image_xscale = image_xscale;
+		}
+	}
+	else if(saci.estado == STATE.LIVRE){
+		sprite_index = spr_saci_pulando;
+	}
+	
+	
+	
+		
 }
 else{
 
-if(_xdirection==0){
-	sprite_index = spr_saci_parado;
-}
-else if(_xdirection==1){
-	sprite_index = spr_saci_andando;
-	image_xscale = 1;
-}
-else{	
-	sprite_index = spr_saci_andando;
-	image_xscale = -1;
-}
+    if(_atacou && saci.estado == STATE.LIVRE){ //definir como atacando
+		saci.estado = STATE.ATACANDO;
+		sprite_index = spr_saci_attack;
+		audio_play_sound(snd_attack,0,false);
+	}
+	else if(saci.estado = STATE.ATACANDO  && image_index > 4 ){ //já foi definido como atacando, mas só criar hitbox de attack a partir do frame 4
+		
+		if(!instance_exists(obj_hitbox_attack)){
+			instance_create_layer(x + 80*image_xscale,y,layer,obj_hitbox_attack);
+			//hitbox.image_xscale = image_xscale;
+		}
+	}
+	else if(saci.estado == STATE.LIVRE){
+		if(_xdirection==0){
+			sprite_index = spr_saci_parado;
+		}
+		else if(_xdirection==1){
+			sprite_index = spr_saci_andando;
+			image_xscale = 1;
+		}
+		else{	
+			sprite_index = spr_saci_andando;
+			image_xscale = -1;
+		}
+	}
 }
 #endregion
 	
